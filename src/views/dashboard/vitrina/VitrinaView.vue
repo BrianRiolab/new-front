@@ -1,82 +1,39 @@
 <template>
     <div v-if="show">
-        <div class="d-flex flex-row">
-            <h3>Tu Negocio VISTA</h3>
-
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-            <div
-                :class="
-                    'tab-' + (show_tab == 'business' ? 'enabled' : 'disabled')
-                "
-                style="padding-right: 20px"
-            >
-                <i
-                    role="button"
-                    data-bs-toggle="tooltip"
-                    title="Mi negocio"
-                    class="bi bi-arrow-right-circle"
-                    @click="on_click_tab('business')"
-                    style="padding: 0px"
-                ></i>
-                <div style="margin-top: -5px">Tu Negocio</div>
-            </div>
-
-            <div
-                :class="'tab-' + (show_tab == 'map' ? 'enabled' : 'disabled')"
-                style="padding-right: 20px"
-            >
-                <i
-                    role="button"
-                    data-bs-toggle="tooltip"
-                    title="Mapa"
-                    class="bi bi-arrow-right-circle"
-                    @click="on_click_tab('map')"
-                    style="padding: 0px"
-                ></i>
-                <div style="margin-top: -5px">Tu Ubicación</div>
-            </div>
-
-            <div
-                :class="
-                    'tab-' + (show_tab == 'social' ? 'enabled' : 'disabled')
-                "
-                style="padding-right: 0px"
-            >
-                <i
-                    role="button"
-                    data-bs-toggle="tooltip"
-                    title="Redes Sociales"
-                    class="bi bi-arrow-right-circle"
-                    @click="on_click_tab('social')"
-                    style="padding-right: 10px"
-                ></i>
-                <div style="margin-top: -5px">Extenciones</div>
+        <!-- <vitrina-topbar-list /> -->
+        <div class="d-flex justify-content-between">
+            <ul class="list-inline d-flex align-items-center mb-0">
+                <vitrina-topbar-item
+                    label="Descripción"
+                    icon="bi-shop"
+                    href="/dashboard/vitrina_view"
+                />
+                <vitrina-topbar-item
+                    label="Contacto"
+                    icon="bi-envelope"
+                    href="/dashboard/contact_view"
+                />
+                <vitrina-topbar-item
+                    label="Ubicación"
+                    icon="bi-geo-alt"
+                    href="/dashboard/vitrina_location_view"
+                />
+            </ul>
+            <div class="">
+                <rdx-button class="btn-dark">Editar</rdx-button>
             </div>
         </div>
-
-        <div style="width: 100%; height: 50px">&nbsp;</div>
-
-        <vitrina-form-business
-            v-if="show_tab == 'business'"
-            v-model:url_main="business.url_main"
-            v-model:uuid_main="business.uuid_main"
-            v-model:title="business.title"
-            v-model:description="business.description"
-            v-model:website="business.website"
-        />
-
-        <vitrina-form-map v-if="show_tab == 'map'" />
-
-        <vitrina-form-social
-            v-if="show_tab == 'social'"
-            v-model:instagram="social.instagram"
-            v-model:facebook="social.facebook"
-            v-model:airbnb="social.airbnb"
-        />
-
-        <div class="d-flex justify-content-center">
-            <rdx-button @click="on_click_save()">Guardar</rdx-button>
+        <div class="py-5" style="flex: 1">
+            <div class="container">
+                <vitrina-form-business
+                    v-if="show_tab == 'business'"
+                    v-model:url_main="business.url_main"
+                    v-model:uuid_main="business.uuid_main"
+                    v-model:title="business.title"
+                    v-model:description="business.description"
+                    v-model:website="business.website"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -111,8 +68,8 @@
 
 <script>
 import VitrinaFormBusiness from "./form/Business.vue";
-import VitrinaFormMap from "./form/Map.vue";
-import VitrinaFormSocial from "./form/Social.vue";
+// import VitrinaFormMap from "./form/Map.vue";
+import TopbarItem from "@/views/startup/components/TopbarItem.vue";
 
 export default {
     data() {
@@ -134,8 +91,9 @@ export default {
     },
     components: {
         "vitrina-form-business": VitrinaFormBusiness,
-        "vitrina-form-map": VitrinaFormMap,
-        "vitrina-form-social": VitrinaFormSocial,
+        // "vitrina-form-map": VitrinaFormMap,
+        // "vitrina-form-social": VitrinaFormSocial,
+        "vitrina-topbar-item": TopbarItem,
     },
 
     created() {

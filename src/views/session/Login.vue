@@ -1,103 +1,59 @@
 <template>
-     
-         <main class="mt-0 main-content">
-        <section>
-            <div class="page-header min-vh-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-5 d-lg-flex d-none ps-0"></div>
-                        <div
-                            class="top-0 my-auto text-center col-5 d-lg-flex d-none h-100 ps-0 position-absolute start-0 justify-content-center flex-column"
-                        >
-                            <div
-                                class="position-relative bg-gradient-primary h-100 d-flex flex-column justify-content-center overflow-hidden"
-                                style="
-                                    background-image: url('https://d1g2o4pwbvyrni.cloudfront.net/rdx-vitrina-dashboard/assets/img/signin-ill.jpeg');
-                                    background-size: cover;
-                                "
-                            >
-                                <h1
-                                    class="mt-5 text-white font-weight-bolder position-relative font-sabon"
-                                >
-                                    Emprendimientos
-                                </h1>
-                            </div>
-                        </div>
-                        <div
-                            class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0"
-                        >
-                            <div class="card card-plain">
-                                <div class="pb-0 card-header text-start">
-                                    <h4 class="font-weight-bolder">
-                                        Iniciar Sesión
-                                    </h4>
-                                    <p class="mb-0">
-                                        Ingresa tus datos para continuar
-                                    </p>
-                                </div>
-                                <div class="card-body">
-                                    <form role="form">
-                                        <rdx-input
-                                            v-model="email"
-                                            id="floatingInput"
-                                            label="Email"
-                                            type="email"
-                                            placeholder="email"
-                                            :isRequired="true"
-                                        />
-                                        <rdx-input
-                                            v-model="password"
-                                            id="floatingPassword"
-                                            label="Contraseña"
-                                            type="password"
-                                            placeholder="password"
-                                            :isRequired="true"
-                                        />
+    <div class="card card-plain">
+        <div class="pb-0 card-header text-start">
+            <h4 class="font-weight-bolder">Iniciar Sesión</h4>
+            <p class="mb-0">Ingresa tus datos para continuar</p>
+        </div>
+        <div class="card-body">
+            <form role="form">
+                <rdx-input
+                    v-model="email"
+                    id="floatingInput"
+                    label="Email"
+                    type="email"
+                    placeholder="email"
+                    :isRequired="true"
+                />
+                <rdx-input
+                    v-model="password"
+                    id="floatingPassword"
+                    label="Contraseña"
+                    type="password"
+                    placeholder="password"
+                    :isRequired="true"
+                />
 
-                                        <div
-                                            class="alert alert-danger"
-                                            role="alert"
-                                            v-if="error"
-                                        >
-                                            {{ error_message }}
-                                        </div>
-
-                               
-                                        <rdx-button @click="on_click_login()">Iniciar Sesión</rdx-button>
- 
-                                        
-                                    </form>
-                                </div>
-                                <div
-                                    class="px-1 pt-0 text-center card-footer px-lg-2"
-                                >
-                                    <p class="mx-auto mb-4 text-sm">
-                                        Crea tu emprendimiento
-                                        <a  role="button"
-                                            @click="on_click_register()"
-                                            class="text-primary font-weight-bold"
-                                            >Registrate</a
-                                        >
-                                    </p>
-
-                                    <p class="mx-auto mb-4 text-sm">
-                                        ¿Olvidaste tu clave?
-                                        <a  role="button"
-                                            @click="on_click_recover()"
-                                            class="text-primary font-weight-bold"
-                                            >Recuperar</a
-                                        >
-                                    </p>                                    
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="alert alert-danger" role="alert" v-if="error">
+                    {{ error_message }}
                 </div>
-            </div>
-        </section>
-    </main>
-     
+
+                <rdx-button @click="on_click_login()"
+                    >Iniciar Sesión</rdx-button
+                >
+            </form>
+        </div>
+        <div class="px-1 pt-0 text-center card-footer px-lg-2">
+            <p class="mx-auto mb-4 text-sm">
+                Crea tu emprendimiento
+                <a
+                    role="button"
+                    @click="on_click_register()"
+                    class="text-primary font-weight-bold"
+                    >Registrate</a
+                >
+            </p>
+
+            <p class="mx-auto mb-4 text-sm">
+                ¿Olvidaste tu clave?
+                <a
+                    role="button"
+                    @click="on_click_recover()"
+                    class="text-primary font-weight-bold"
+                    >Recuperar</a
+                >
+            </p>
+        </div>
+    </div>
 </template>
 
 <!-- import style -->
@@ -113,81 +69,67 @@
 }
 </style>
 
-
-
 <script>
-
 const body = document.getElementsByTagName("body")[0];
 
 export default {
-  name: "signin",
-  data() {
-    return {
-        email: null,
-        password: null,
-        error: false,
-        error_message: "",
-    };
-  },
-  components: {
-  
-  },
-  created() {
-  
-  },
-  beforeUnmount() {
-     body.classList.add("bg-gray-100");
-  },
-  mounted() {
-
-  },
-  methods: {
-  
-    on_click_register() {
-      this.$router.push({path:'/session/register'});
+    name: "signin",
+    data() {
+        return {
+            email: null,
+            password: null,
+            error: false,
+            error_message: "",
+        };
     },
-    
-    on_click_recover() {
-        this.$router.push({path:'/session/recover'});
+    components: {},
+    created() {},
+    beforeUnmount() {
+        body.classList.add("bg-gray-100");
     },
-    
-    on_click_login() {
-      
-      this.error = false;
-      this.error_message = '';
-      
-      // Borra todas las variables storage session
-      this.$store.session.clear_all();
-      
-      this.$api.post({
-        url:'/api/token/',
-        data:  {email:this.email, password:this.password },
-        success: (resp)  => {
-          this.$store.session.current_user = resp.data;
-          this.$store.session.token = resp.data.token;
-          console.log('.......................');
-          console.log(resp);
-          if (resp.data.showcase_state_ch=='EMPTY') {
-              this.$router.push({ path: '/startup/welcome' });    
-          }
-          else  {
-              this.$router.push({ path: '/dashboard/vitrina_vew' });
-          }
+    mounted() {},
+    methods: {
+        on_click_register() {
+            this.$router.push({ path: "/session/register" });
         },
-        error: (err) => {
-          console.log(err);
-          try {
-              this.error_message = err.response.data.error;
-          }
-          catch(e) {
-              this.error_message = 'No se pudo validar el usario';
-          }
-          this.error = true;
-          console.log(this.error_message);
-        }
-      });
 
+        on_click_recover() {
+            this.$router.push({ path: "/session/recover" });
+        },
+
+        on_click_login() {
+            this.error = false;
+            this.error_message = "";
+
+            // Borra todas las variables storage session
+            this.$store.session.clear_all();
+
+            this.$api.post({
+                url: "/api/token/",
+                data: { email: this.email, password: this.password },
+                success: (resp) => {
+                    this.$store.session.current_user = resp.data;
+                    this.$store.session.token = resp.data.token;
+                    console.log(".......................");
+                    console.log(resp);
+                    if (resp.data.showcase_state_ch == "EMPTY") {
+                        this.$router.push({ path: "/startup/welcome" });
+                    } else {
+                        this.$router.push({ path: "/dashboard/vitrina_vew" });
+                    }
+                },
+                error: (err) => {
+                    console.log(err);
+                    try {
+                        this.error_message = err.response.data.error;
+                    } catch (e) {
+                        this.error_message = "No se pudo validar el usario";
+                    }
+                    this.error = true;
+                    console.log(this.error_message);
+                },
+            });
+        },
     },
-  },
 };
 </script>

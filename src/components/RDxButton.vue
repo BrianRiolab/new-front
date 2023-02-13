@@ -2,7 +2,7 @@
     <div :id="id" class="btn btn-primary" :style="{ width: width }">
         <slot></slot>
 
-        <span v-if="show_plus" class="r-plus"> +</span>
+        <span v-if="show_plus" class="r-plus "> +</span>
     </div>
 </template>
 

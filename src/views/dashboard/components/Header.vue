@@ -2,7 +2,13 @@
     <header class="dashboard-header mb-4 pb-2">
         <div class="d-flex justify-content-between">
             <!-- TITULO -->
-            <div class="position-relative col-4 col-xl-2">
+            <h4
+                class="col-6 col-xl-6 m-0"
+                v-if="this.$store.global.header_title != ''"
+            >
+                {{ this.$store.global.header_title }}
+            </h4>
+            <div class="position-relative col-4 col-xl-2" v-else>
                 <icon-logo-isotype
                     class="position-absolute left-0 bottom-0 d-none d-xl-block"
                     style="max-height: 60px; left: -10px"
@@ -14,7 +20,6 @@
                     height="65"
                     style="margin-top: -35px; margin-left: 10px"
                 /> -->
-                <h4 class="m-0">{{ this.$store.global.header_title }}</h4>
             </div>
 
             <div>&nbsp;</div>
@@ -154,6 +159,10 @@ export default {
             console.log(newValue);
             this.$store.global.header_title = "";
             switch (newValue.fullPath) {
+                case "/dashboard/vitrina_view":
+                case "/dashboard/contact_view":
+                    this.$store.global.header_title = "Mi Emprendimiento";
+                    break;
                 case "/dashboard/current_user":
                     this.$store.global.header_title = "Mi perfil";
                     break;
@@ -167,7 +176,7 @@ export default {
                     this.$store.global.header_title = "Producto de vitrina";
                     break;
                 case "/dashboard/product_list":
-                    this.$store.global.header_title = "Mi vitrina de productos";
+                    this.$store.global.header_title = "Mi Vitrina";
                     break;
                 case "/dashboard/training":
                     this.$store.global.header_title = "Capacitaciones";

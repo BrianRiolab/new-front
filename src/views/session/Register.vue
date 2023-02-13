@@ -1,95 +1,73 @@
 <template>
-  <main class="mt-0 main-content">
-    <section>
-      <div class="page-header min-vh-100">
-        <div class="container">
-          <div class="row">
-            <div class="col-5 d-lg-flex d-none ps-0"></div>
-            <div
-              class="top-0 my-auto text-center col-5 d-lg-flex d-none h-100 ps-0 position-absolute start-0 justify-content-center flex-column"
-            >
-              <div
-                class="position-relative bg-gradient-primary h-100 d-flex flex-column justify-content-center overflow-hidden"
-                style="
-                  background-image: url('https://d1g2o4pwbvyrni.cloudfront.net/rdx-vitrina-dashboard/assets/img/signin-ill.jpeg');
-                  background-size: cover;
-                "
-              >
-                <h1
-                  class="mt-5 text-white font-weight-bolder position-relative font-sabon"
+    <div class="card card-plain">
+        <div class="pb-0 card-header text-start">
+            <h4 class="font-weight-bolder">Registro de Usuario</h4>
+            <p class="mb-0">Ingresa tus datos para continuar</p>
+        </div>
+        <div class="card-body">
+            <form role="form">
+                <rdx-input
+                    v-model="name"
+                    id="floatingInput"
+                    label="Nombre"
+                    type="text"
+                    placeholder="name"
+                    :isRequired="true"
+                />
+                <rdx-input
+                    v-model="email"
+                    id="floatingInput"
+                    label="Email"
+                    type="email"
+                    placeholder="email"
+                    :isRequired="true"
+                />
+                <rdx-input
+                    v-model="password"
+                    id="floatingPassword"
+                    label="Contraseña"
+                    type="password"
+                    placeholder="password"
+                    :isRequired="true"
+                />
+
+                <div class="alert alert-danger" role="alert" v-if="error">
+                    {{ error_message }}
+                </div>
+
+                <rdx-button @click="on_click_register()"
+                    >Registrarse</rdx-button
                 >
-                  RECUPERAR CLAVE
-                </h1>
-              </div>
-            </div>
-            <div
-              class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0"
-            >
-              <div class="card card-plain">
-                <div class="pb-0 card-header text-start">
-                  <h4 class="font-weight-bolder">Registro de Usuario</h4>
-                  <p class="mb-0">Ingresa tus datos para continuar</p>
-                </div>
-                <div class="card-body">
-                  <form role="form">
-                    
-                    <rdx-input v-model="name" id="floatingInput" label="Nombre" type="text" placeholder="name" :isRequired=true />
-                    <rdx-input v-model="email" id="floatingInput" label="Email" type="email" placeholder="email" :isRequired=true />
-                    <rdx-input v-model="password" id="floatingPassword" label="Contraseña" type="password" placeholder="password" :isRequired=true />
-
-
-                    <div class="alert alert-danger" role="alert" v-if="error">
-                      {{ error_message }}
-                    </div>
-
-                    
-                    <rdx-button @click="on_click_register()">Registrarse</rdx-button>
-                    
-                   
-                  </form>
-                </div>
-                <!-- <div class="card-body" style="background-color:black;right:0">
+            </form>
+        </div>
+        <!-- <div class="card-body" style="background-color:black;right:0">
                   
                 </div> -->
 
-
-                <div 
-                  
-                  class="px-1 pt-0 text-center card-footer px-lg-2"
+        <div class="px-1 pt-0 text-center card-footer px-lg-2">
+            <p class="mx-auto mb-4 text-sm">
+                Volver a
+                <a
+                    role="button"
+                    @click="on_click_back_login()"
+                    class="text-primary font-weight-bold"
+                    >Iniciar Sesión</a
                 >
-                  <p class="mx-auto mb-4 text-sm">
-                    Volver a
-                    <a
-                       role="button"
-                       @click="on_click_back_login()"
-                       class="text-primary font-weight-bold">Iniciar Sesión</a>
-                  </p>
-                </div>
-                
-                
-              </div>
-            </div>
-          </div>
-          <div style="left:0%;width:10%;height:10%;background-color:black"></div>
+            </p>
         </div>
-      </div>
-    </section>
-  </main>
+    </div>
 </template>
 
 <!-- import style -->
 <style lang="scss" scoped>
 .verification-code {
-
-  &-input
-  {}
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 200px;
+    &-input {
+    }
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 200px;
 }
-
-
 </style>
 <script>
 // import ArgonInput from "@/components/ArgonInput.vue";
@@ -98,40 +76,35 @@ import axios from "axios";
 const body = document.getElementsByTagName("body")[0];
 
 export default {
-  name: "signin",
-  data() {
-    return {
-      name: '',
-      email: '',
-      password: '',
-      error: false,
-      error_message: '',
-      error_code: '',
-    };
-  },
-  components: {
-    "rdx-input": RDxInput,
-  },
-  created() {
-    body.classList.remove("bg-gray-100");
-  },
-  
-  beforeUnmount() {
-    body.classList.add("bg-gray-100");
-  },
-  mounted() {
-
-  },
-  methods: {
-      
-    on_click_back_login() {
-        this.$router.push({ path: '/session/login' });
+    name: "signin",
+    data() {
+        return {
+            name: "",
+            email: "",
+            password: "",
+            error: false,
+            error_message: "",
+            error_code: "",
+        };
     },
-    
-    
-    on_click_register(){
-        
-      /*  
+    components: {
+        "rdx-input": RDxInput,
+    },
+    created() {
+        body.classList.remove("bg-gray-100");
+    },
+
+    beforeUnmount() {
+        body.classList.add("bg-gray-100");
+    },
+    mounted() {},
+    methods: {
+        on_click_back_login() {
+            this.$router.push({ path: "/session/login" });
+        },
+
+        on_click_register() {
+            /*  
       if (this.name == "") {
         this.error = true;
         this.error_message = "El campo nombre es requerido";
@@ -148,39 +121,40 @@ export default {
         return;
       }
       */
-      
-      this.error = false;
-      
-      this.$store.session.clear_all();
-      
-      this.$api.post({
-         url: '/api/enrollment/',
-         data: {
-             name: this.name,
-             email: this.email,
-             password: this.password,             
-         },
-         success: (resp) => {
-           this.$store.session.webcode = resp.data.webcode;
-           this.$store.session.current_user.name =  this.name.trim();
-           this.$store.session.current_user.email =  this.email.trim();
-           this.$router.push({ path: '/session/verification' });  
-         },
-         error: (err) => {
-           try {
-               if (err.response.data.code=='ENROLLMENT_EMAIL_ALREADY_EXIST') {
-                   this.error_message = 'El email ya está enrolado';
-               }
-           }
-           catch(e) {
-               this.error_message = 'No se pudo realizar el registro';
-           }
-           this.error = true;
-         }
-      });
-              
-              
-       /*       
+
+            this.error = false;
+
+            this.$store.session.clear_all();
+
+            this.$api.post({
+                url: "/api/enrollment/",
+                data: {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                },
+                success: (resp) => {
+                    this.$store.session.webcode = resp.data.webcode;
+                    this.$store.session.current_user.name = this.name.trim();
+                    this.$store.session.current_user.email = this.email.trim();
+                    this.$router.push({ path: "/session/verification" });
+                },
+                error: (err) => {
+                    try {
+                        if (
+                            err.response.data.code ==
+                            "ENROLLMENT_EMAIL_ALREADY_EXIST"
+                        ) {
+                            this.error_message = "El email ya está enrolado";
+                        }
+                    } catch (e) {
+                        this.error_message = "No se pudo realizar el registro";
+                    }
+                    this.error = true;
+                },
+            });
+
+            /*       
               "/api/enrollment/", {
           name: this.name,
           email: this.email,
@@ -204,8 +178,7 @@ export default {
           console.log(error.response.data.error);
         });
         */
-
-    }
-  },  
+        },
+    },
 };
 </script>

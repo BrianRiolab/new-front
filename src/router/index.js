@@ -58,8 +58,15 @@ const routes = [
     component: () => import('@/views/dashboard/Index.vue'),
     
     children: [
-        { path: '/dashboard/vitrina_form', component: () => import('@/views/dashboard/vitrina/VitrinaForm.vue') },
-        { path: '/dashboard/vitrina_view', component: () => import('@/views/dashboard/vitrina/VitrinaView.vue') },
+      { path: '/dashboard/vitrina_view', component: () => import('@/views/dashboard/vitrina/VitrinaView.vue') },
+      { path: '/dashboard/vitrina_form', component: () => import('@/views/dashboard/vitrina/VitrinaForm.vue') },
+        
+      { path: '/dashboard/contact_view', component: () => import('@/views/dashboard/vitrina/ContactView.vue') },
+      { path: '/dashboard/contact_form', component: () => import('@/views/dashboard/vitrina/VitrinaForm.vue') },
+
+      { path: '/dashboard/vitrina_location_view', component: () => import('@/views/dashboard/vitrina/VitrinaView.vue') },
+      { path: '/dashboard/vitrina_location_form', component: () => import('@/views/dashboard/vitrina/VitrinaForm.vue') },
+
         //{ path: '/dashboard/home_index', component: () => import('@/views/dashboard/home/Index.vue') },
         //{ path: '/dashboard/vitrinalist_index', component: () => import('@/views/dashboard/vitrinalist/Index.vue') },
         { path: '/dashboard/product_list', component: () => import('@/views/dashboard/product/ProductList.vue') },     

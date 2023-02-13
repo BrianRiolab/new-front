@@ -1,0 +1,471 @@
+.row-projects-card
+{
+    @extend .row;
+    @extend .g-0;
+    @extend .center;
+    // @extend .justify-content-sm-start;
+    // @extend .justify-content-xl-start;
+    // margin-left: 5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    flex-wrap: wrap;
+
+}
+
+//$columns : 6;
+$columns: 2;
+$sm-columns: 2;
+$md-columns: 3;
+$lg-columns: 4;
+$xl-columns: 4;
+$xxl-columns: 6;
+
+.col-project-card
+{
+    flex: 0 0 auto;
+    @extend .col-6;
+   // @extend .col-sm-6;
+   // @extend .col-md-4;
+   // @extend .col-lg-3;
+   // @extend .col-xl-3;
+   // @extend .col-xxl-2;
+
+    &:first-of-type {
+        margin-left: auto;
+        }
+}
+
+//Col-project-card manual breakpoints
+@include media-breakpoint-up(sm) {
+    .col-project-card {
+        flex-basis: calc(100% / #{$sm-columns});
+
+            &:nth-of-type(n-#{$sm-columns}):last-of-type {
+                margin-right: auto;
+                }
+    }
+}
+@include media-breakpoint-up(md) {
+    .col-project-card {
+        flex-basis: calc(100% / #{$md-columns});
+
+            &:nth-of-type(n-#{$md-columns}):last-of-type {
+                margin-right: auto;
+                }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .col-project-card {
+        flex-basis: calc(100% / #{$lg-columns});
+
+            &:nth-of-type(n-#{$lg-columns}):last-of-type {
+                margin-right: auto;
+                }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .col-project-card {
+        flex-basis: calc(100% / #{$xl-columns});
+
+            &:nth-of-type(n-#{$xl-columns}):last-of-type {
+                margin-right: auto;
+                }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .col-project-card {
+        flex-basis: calc(100% / #{$xxl-columns});
+
+            &:nth-of-type(n-#{$xxl-columns}):last-of-type {
+                margin-right: auto;
+                }
+    }
+}
+
+
+
+
+/* .col-project-card + .col-project-card 
+{
+    margin-left: .2rem;
+} */
+.project-card
+{
+    position: relative;
+    //margin: -8px;
+    transform: scale(1) translateZ(0);
+    transition: transform 0.4s ease-in-out, z-index 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 7px;
+    // transform: scale(0.9);
+    &:hover
+    {
+        // box-shadow: 0.01171875px 15.00390625px 27px -2px rgba(0, 0, 0, 0.5);
+        z-index: 20;
+        //more scale & z position
+        transform: scale(1) translateZ(10px);
+        .project-card-options
+        {
+            transform: translateY(0) scale(1);
+            transition: opacity 0.4s ease-in, transform 0.8s;
+            opacity: 1;
+            .project-card-options-container
+            {
+                display: flex;
+            }
+        }
+        .project-card-footer
+        {
+            .project-footer-options
+            {
+                transition: opacity 0.4s ease-in;
+                opacity: 1 !important;
+            }
+        }
+    }
+    &:not(:hover)
+    {
+        z-index: 0;
+        transform: scale(1) translateZ(0);
+        box-shadow: 7px 7px 14px #00000017;
+        .project-card-options
+        {
+            transform: translateY(40px) scale(1);
+            opacity: 0;
+            .project-card-options-container
+            {
+                display: none !important;
+            }
+        }
+    }
+
+    .project-card-container
+    {
+        // cursor: pointer;
+        background: transparent;
+        box-shadow: 7px 7px 14px #00000017;
+        overflow: hidden;
+        border-radius: 7px;
+        opacity: 1;
+        position: relative;
+
+        .project-card-info
+        {
+            position: absolute;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            top: 0;
+            left: 0;
+
+            .project-card-footer
+            {
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                width: 100%;
+
+                display: inline-block;
+                align-self: flex-end;
+                margin-bottom: 0.5rem !important;
+                margin-left: .3rem !important;
+                .project-footer-options
+                {
+                    opacity: 0;
+                    @extend .m-1;
+                    @extend .pb-3;
+                    display: flex;
+                    a
+                    {
+                        margin-right: 0.5rem;
+                        color: white !important;
+                        opacity: 1;
+                        z-index: 1;
+                        transition: all 0.4s ease-in-out;
+                        &:hover
+                        {
+                            color: rgba(255, 255, 255, 0.634) ;
+                            opacity: 0.8;
+                            scale: 1;
+                        }
+                    }
+                }
+            }
+            .project-card-title
+            {
+                @extend .font-apercu-medium;
+                font-size: 13px;
+                color: white;
+                // set the font size for different breakpoints
+
+
+                @include media-breakpoint-only(xs) 
+                { 
+                    font-size: 2rem;
+                }
+                @include media-breakpoint-only(sm) 
+                { 
+                    font-size: 40px;
+                }
+                @include media-breakpoint-only(md) 
+                { 
+                    font-size: 33px;
+                }
+                @include media-breakpoint-only(lg) 
+                { 
+                    font-size: 27px;
+                }
+                @include media-breakpoint-only(xl) 
+                { 
+                    font-size: 35px;
+                }
+                @include media-breakpoint-between(xl, xxl) 
+                { 
+                    font-size: 36px;
+                    
+                }
+                @include media-breakpoint-only(xxl) 
+                { 
+                    font-size: 32px;
+                    
+                }
+                @media (min-width: 1700px) 
+                {
+                    font-size: 40px;   
+                }
+            }
+        }
+
+        .project-card-image
+        {
+            &::before
+            {
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent linear-gradient(37deg, #000000a3, #00000000 67.23%) 0% 0% no-repeat padding-box;
+                opacity: 1;
+                position: absolute;
+            }
+            &::after
+            {
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent linear-gradient(211deg, #ffffff66, #ffffff00 44.12%) 0% 0% no-repeat padding-box;
+                opacity: 1;
+                position: absolute;
+            }
+        }
+    }
+
+    .project-card-options
+    {
+        //@extend .center;
+        // position: absolute;
+        display:flex;
+        justify-content: center;
+        .project-card-options-container
+        {
+            padding: 1rem;
+            background: #FFFFFF;
+            // box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.0823529412);
+            box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.15);
+            opacity: 1;
+            border-radius: 15px;
+            display: flex;
+            z-index: 99999;
+            color: #838383;
+            bottom: 0;
+            position: absolute;
+            transform: translateY(90%);
+
+            .project-option
+            {
+                @extend .btn;
+                @extend .center;
+                // margin-left: 0.15rem;
+                position: relative;
+                width:90px;
+
+                // .project-option-container
+                // {
+                //     transition: transform 0.3s ease-in-out;
+                // }
+                .project-option-icon{
+                    font-size: x-large;
+                    transition: color 0.3s ease-in-out;
+                }
+                .project-option-title
+                {
+                    @extend .font-apercu-light;
+                    font-size: small;
+                    transition: color 0.3s ease-in-out;
+                }
+                &:hover
+                {
+                    // .project-option-container
+                    // {
+                    //     transform: scale(1);
+                    // }
+                    .project-option-icon, .project-option-title
+                    {
+                        color:  black !important;
+                    }
+                }
+            }
+            .project-option + .project-option
+            {
+
+                margin-right: 0.20rem;
+                &::before
+                {
+                    content: "";
+                    position: absolute;
+                    top: 20%;
+                    left: 0;
+                    left: -0.20rem;
+                    width: 0.1rem;
+                    height: 60%;
+                    background: #838383;
+                }
+            }
+            
+        }
+
+    }
+}
+
+//Col-project-card alignmente manual breakpoints
+//xs
+.col-project-card:nth-child(2n+1) {
+    .project-card {
+        .project-card-options {
+            justify-content: flex-start !important;
+        }
+    }
+}
+
+.col-project-card:nth-child(2n) {
+    .project-card {
+        .project-card-options {
+            justify-content: flex-end !important;
+        }
+    }
+}
+
+
+@include media-breakpoint-up(md) {
+    //1,4,7...
+    .col-project-card:nth-child(3n-2) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-start !important;
+            }
+        }
+    }
+    //2,5,8...
+    .col-project-card:nth-child(3n+2) {
+        .project-card {
+            .project-card-options {
+                justify-content: center !important;
+            }
+        }
+    }
+    //3,6,9...
+    .col-project-card:nth-child(3n+3) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-end !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    //1,5,9...
+    .col-project-card:nth-child(4n+1) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-start !important;
+            }
+        }
+    }
+    //2,6,10...3,7,11
+    .col-project-card:nth-child(4n+2), .col-project-card:nth-child(4n+3) {
+        .project-card {
+            .project-card-options {
+                justify-content: center !important;
+            }
+        }
+    }
+    //1,5,9...
+    .col-project-card:nth-child(4n) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-end !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    //1,5,9...
+    .col-project-card:nth-child(4n+1) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-start !important;
+            }
+        }
+    }
+    //2,6,10...3,7,10
+    .col-project-card:nth-child(4n+2), .col-project-card:nth-child(4n+3) {
+        .project-card {
+            .project-card-options {
+                justify-content: center !important;
+            }
+        }
+    }
+    //4,8,12...
+    .col-project-card:nth-child(4n) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-end !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    //1,7,13...
+    .col-project-card:nth-child(6n+1) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-start !important;
+            }
+        }
+    }
+    //2,3,4,5,8,9,10,11,14,15,16,17...
+    .col-project-card:nth-child(3n+2), .col-project-card:nth-child(6n+4), .col-project-card:nth-child(6n+3)  {
+        .project-card {
+            .project-card-options {
+                justify-content: center !important;
+            }
+        }
+    }
+    //6,12,18...
+    .col-project-card:nth-child(6n) {
+        .project-card {
+            .project-card-options {
+                justify-content: flex-end !important;
+            }
+        }
+    }
+}
