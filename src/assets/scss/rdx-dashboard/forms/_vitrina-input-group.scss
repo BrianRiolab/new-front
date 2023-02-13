@@ -1,0 +1,74 @@
+.vitrina-input-group {
+
+    font-family: "Roboto", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+
+    &.title {
+        .vitrina-form-control {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+    label {
+        font-weight: 400;
+        font-size: 0.75rem;
+        // line-height: 1.625;
+    }
+
+    .form-control {
+
+        border-radius: 0;
+        border-color: transparent;
+        background-color: white;
+
+        &:focus {
+            border-color: $primary !important;
+        }
+
+        &.font-size-1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .vitrina-form-control {
+
+        border-color: transparent;
+        background-color: white;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: b;
+        padding: 1rem;
+        font-size: .75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: black;
+        width: 100%;
+
+        &:focus {
+            border: none;
+            box-shadow: none;
+            background-color: white;
+            border-color: $primary !important;
+
+            // outline: $primary 1px solid !important;
+            
+            // border: $primary 1px solid !important;
+            // outline: none !important;
+            // border-radius: 10px;
+            // outline: 1px solid red;
+        }
+
+        &.font-size-1 {
+            font-size: 1.5rem;
+            
+        }
+    }
+}
+
+textarea {
+
+    font-size: 1rem !important;
+    resize: none;
+
+}

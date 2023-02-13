@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+/*Apercu*/
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_regular.otf") format(" opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_regular_italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_bold.otf") format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_bold_italic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_light.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_light_italic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_medium.otf") format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Apercu";
+    src: url("~@/assets/fonts/apercu/apercu_medium_italic.otf") format("opentype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+.font-apercu {
+    font-family: "Apercu", sans-serif !important;
+    font-weight: normal !important;
+
+    &-bold {
+        font-family: "Apercu", sans-serif !important;
+        font-weight: bold !important;
+
+        &-italic {
+            font-family: "Apercu", sans-serif !important;
+            font-style: italic !important;
+        }
+    }
+
+    &-light {
+        font-family: "Apercu", sans-serif !important;
+        font-weight: 300 !important;
+
+        &-italic {
+            font-family: "Apercu", sans-serif !important;
+            font-style: italic !important;
+        }
+    }
+
+    &-medium {
+        font-family: "Apercu", sans-serif !important;
+        font-weight: 500 !important;
+
+        &-italic {
+            font-family: "Apercu", sans-serif !important;
+            font-style: italic !important;
+        }
+    }
+
+    &-italic {
+        font-family: "Apercu", sans-serif !important;
+        font-style: italic !important;
+    }
+}
+
+/* Sabon */
+@font-face {
+    font-family: "Sabon";
+    src: url("~@/assets/fonts/sabon/SabonLTStd-Roman.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Sabon";
+    src: url("~@/assets/fonts/sabon/SabonLTStd-Italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Sabon";
+    src: url("~@/assets/fonts/sabon/SabonLTStd-Bold.otf") format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Sabon";
+    src: url("~@/assets/fonts/sabon/SabonLTStd-BoldItalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+.font-sabon {
+    font-family: "Sabon", sans-serif !important;
+
+    &-bold {
+        font-family: "Sabon", sans-serif !important;
+        font-weight: bold !important;
+
+        &-italic {
+            font-family: "Sabon", sans-serif !important;
+            font-style: italic !important;
+        }
+    }
+
+    &-italic {
+        font-family: "Sabon", sans-serif !important;
+        font-style: italic !important;
+    }
+}

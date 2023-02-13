@@ -1,0 +1,27 @@
+.turbo-progress-bar {
+    background: linear-gradient(to right, black, var(--rdx-primary-color));
+    left: 66px;
+    height: 7.5px;
+    border-radius: 0 5rem 5rem 0;
+}
+
+.progress-bar {
+    height: $progress-bar-height;
+    border-radius: $border-radius;
+}
+
+.progress {
+    overflow: visible;
+
+    &.progress-xs {
+        height: $progress-height-xs;
+    }
+
+    &.progress-sm {
+        height: $progress-height-sm;
+    }
+
+    &.progress-lg {
+        height: $progress-height-lg;
+    }
+}

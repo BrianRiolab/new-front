@@ -1,0 +1,26 @@
+@import "checkboxes";
+
+
+// .center {
+//     display: flex !important;
+//     justify-content: center !important;
+//     align-items: center !important;
+//     flex-direction: column !important;
+//     // display: grid;
+//     // place-items: center;
+// }
+
+.bg-success {
+    background-color: transparent !important;
+}
+
+.navbar-vertical.navbar-expand-xs {
+    max-width: 4.13rem !important;
+}
+.sidenav.fixed-start + .main-content {
+    margin-left: calc(4.13rem + 1.5rem) !important;
+}
+
+.btn {
+    padding: 0.525rem 2.25rem;
+}

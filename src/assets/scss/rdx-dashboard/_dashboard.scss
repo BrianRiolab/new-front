@@ -1,0 +1,262 @@
+// .turbo-progress-bar
+// {
+//     background-color: var(--rdx-theme-color);
+//     left: 66px;
+//     height: 10px;
+// }
+
+.turbo-progress-bar {
+    background: linear-gradient(to right, black, var(--rdx-primary-color));
+    left: 66px;
+    height: 7.5px;
+    border-radius: 0 5rem 5rem 0;
+}
+
+
+// a{
+// 	@extend .text-decoration-none;
+// }
+// .center
+// {
+//     @extend .d-flex;
+//     @extend .justify-content-center;
+//     @extend .align-items-center;
+//     // @extend .flex-column;
+// }
+// .color-white
+// {
+//     color: white!important;
+// }
+// .z-index-background
+// {
+//     z-index: -1;
+// }
+// .z-index-ui
+// {
+//     z-index: 1;
+// }
+// .rdx-box-shadow
+// {
+// 	box-shadow:  0 4px 25px 0 rgba(0, 0, 0, 0.15);
+
+// 	&-60
+// 	{
+// 		box-shadow: 0.8px 3.7px 5.3px rgba(14, 6, 6, 0.024),
+// 		2.7px 12.5px 17.9px rgba(0, 0, 0, 0.036),
+// 		12px 56px 80px rgba(0, 0, 0, 0.06);
+// 	}
+// 	&-20
+// 	{
+// 		box-shadow: 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+// 	}
+// 	&-10
+// 	{
+// 		box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02);
+// 	}
+// }
+
+body#application
+{
+    &.without-sidebar
+    {
+        .content-body
+        {
+            margin-right: 0px!important;
+        }
+        .application-layers 
+        
+
+        .dashboard-background {
+            top: 0;
+            // left: 66px;
+            // width: calc(100vw - 66px);
+            width: 100vw;
+            left: 0;
+        }
+        .application {
+            .application-layers {
+                .surface-layer {
+                    display: none;
+                }
+    
+                .dashboard-background {
+                    left: 0;
+                    width: 100vw;
+    
+                    // // z-index: -1;
+                    @include media-breakpoint-down(sm) {
+                        padding-bottom: 0px;
+                        // width: 100vw;
+                        // left: 0;
+                    }
+                }
+    
+                .content-layer {
+                    position: absolute;
+                    //background-color: #ffffff;
+                    //background-color: var(--primary-background-color);
+                    color: var(--primary-text-color);
+                    z-index: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 100%;
+                    left: 0px;
+                    // height: 100vh;
+                    
+                    @include media-breakpoint-down(sm) {
+                        padding-bottom: 0px;
+                    }
+    
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-transition: left 150ms cubic-bezier(0, 0, 0.35, 1);
+                    -o-transition: left 150ms cubic-bezier(0, 0, 0.35, 1);
+                    transition: left 150ms cubic-bezier(0, 0, 0.35, 1);
+                    overflow: hidden;
+    
+                    transition: none;
+    
+                }
+            }
+        }
+     
+    }
+
+}
+body#application {
+    @extend .vw-100;
+    @extend .vh-100;
+    overflow-x: initial;
+    overflow-y: initial;
+    overflow: hidden;
+    background-color: $rdx-background-color;
+
+    div#app{
+       @extend .vw-100;
+       @extend .vh-100;
+       overflow-x: initial;
+       overflow-y: initial;
+       overflow: hidden;
+    }
+
+    .application {
+        @extend .w-100;
+        @extend .h-100;
+        @extend .d-flex;
+        @extend .flex-column;
+
+        &::before {
+            content: "";
+            @extend .position-fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999999999999;
+        }
+
+        .application-layers {
+            width: 100%;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            position: relative;
+
+            .surface-layer {
+                position: absolute;
+                background-color: var(--surfce-color);
+                z-index: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: -ms-flexbox;
+                display: flex;
+
+                nav {
+                    width: 66px;
+                    height: 100%;
+                    -ms-flex-negative: 0;
+                    flex-shrink: 0;
+                }
+            }
+
+            .dashboard-background {
+                top: 0;
+                left: 66px;
+                width: calc(100vw - 66px);
+                height: 100vh;
+                position: fixed;
+                background-color: var(--dashboard-background-color);
+
+                // z-index: -1;
+                @include media-breakpoint-down(sm) {
+                    padding-bottom: 66px;
+                    width: 100vw;
+                    left: 0;
+                }
+            }
+
+            .content-layer {
+                position: absolute;
+                //background-color: #ffffff;
+                //background-color: var(--primary-background-color);
+                color: var(--primary-text-color);
+                z-index: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                left: 66px;
+                // height: 100vh;
+                
+                @include media-breakpoint-down(sm) {
+                    padding-bottom: 66px;
+                    left: 0;
+                }
+
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-transition: left 150ms cubic-bezier(0, 0, 0.35, 1);
+                -o-transition: left 150ms cubic-bezier(0, 0, 0.35, 1);
+                transition: left 150ms cubic-bezier(0, 0, 0.35, 1);
+                overflow: hidden;
+
+                transition: none;
+
+                .content-layer-wrapper {
+                    @extend .w-100;
+                    @extend .h-100;
+                    @extend .d-flex;
+                    @extend .flex-column;
+                    @extend .position-relative;
+                    @extend .visible;
+                    @extend .opacity-100;
+
+                    flex-grow: 1;
+                    min-width: 0;
+
+                    .content-body {
+                        @extend .container-fluid;
+                        //@extend .p-3;
+                        //@extend .p-sm-3;
+                        //@extend .p-md-5;
+                        // @extend .pb-1;
+                        padding: 2rem;
+
+                        height: 100%;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        margin-right: 358px;
+                        overflow-x: auto;
+                        overflow-y: scroll;
+                        outline: 0;
+
+                    }
+                }
+            }
+        }
+    }
+}

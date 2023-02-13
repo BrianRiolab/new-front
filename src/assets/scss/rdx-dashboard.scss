@@ -1,0 +1,29 @@
+// Bootstrap Functions
+@import "rdx-dashboard/bootstrap/functions";
+
+// Custom Variables
+@import "rdx-dashboard/custom/variables";
+
+// Theme Variables
+@import "rdx-dashboard/variables";
+
+
+
+
+// Bootstrap Core
+//@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Bootstrap Icons
+
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
+
+
+// Theme Core
+@import "rdx-dashboard/theme";
+
+// Custom Styles
+@import "rdx-dashboard/custom/styles";
