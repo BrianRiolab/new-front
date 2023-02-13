@@ -3,8 +3,8 @@
         class="list-inline-item mx-0 ms-xl-3"
         :class="{
             active: isCurrentPage(),
-            // 'locked-step': isLockedStep(),
-            // 'unlocked-step': !isLockedStep(),
+            'locked-step': isLockedStep(),
+            'unlocked-step': !isLockedStep(),
         }"
         @click="onClick"
     >
@@ -136,7 +136,6 @@ export default {
     },
     methods: {
         isCurrentPage() {
-            console.log(this.$route.path + " " + this.href);
             return this.$route.path === this.href;
         },
         isLockedStep() {

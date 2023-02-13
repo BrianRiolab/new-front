@@ -10,7 +10,14 @@
         <i :class="'bi ' + icon" style="color: #e5e5e5"></i>
     </li>
 </template>
-
+<style scoped>
+/* nav.sidebar .nav li.active {
+    color: white !important;
+} */
+nav.sidebar .nav li.active::before {
+    background: white;
+}
+</style>
 <script>
 export default {
     props: {

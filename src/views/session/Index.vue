@@ -56,7 +56,10 @@ export default {
 
     created() {},
     beforeUnmount() {},
-    mounted() {},
+    mounted() {
+        document.getElementsByTagName("body")[0].id = "application";
+        document.getElementsByTagName("body")[0].classList.add("bg-white");
+    },
     methods: {},
 };
 </script>

@@ -51,7 +51,7 @@ export default {
     components: {},
     methods: {
         on_click_continue() {
-            this.$router.push("/dashboard");
+            this.$router.push("/dashboard/vitrina_view");
         },
     },
 };

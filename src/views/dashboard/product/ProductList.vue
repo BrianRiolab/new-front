@@ -8,9 +8,12 @@
     <div class="container">
         <div class="row y-5 g-5" id="projects">
             <!-- class="col-12 col-sm-10 col-sm-8 col-md-6 col-lg-4 col-xl-2" -->
-            <div v-for="(product, idx) in products" :key="idx">
-                <div class="p-1 p-xl-2 col-3 col-sm-3 col-xl-3">
-                    <!-- <rdx-image-item
+            <div
+                v-for="(product, idx) in products"
+                :key="idx"
+                class="p-1 p-xl-2 col-3 col-sm-3 col-xl-3"
+            >
+                <!-- <rdx-image-item
                         @click_edit="on_click_edit_item(product)"
                         :url="product.url_product"
                         style="
@@ -24,65 +27,56 @@
                         "
                     /> -->
 
-                    <div id="<%= dom_id project%>" class="">
-                        <div class="project-card">
-                            <div class="project-card-container">
-                                <div class="project-card-image">
-                                    <img
-                                        :src="product.url_product"
-                                        size="400x400"
-                                        class="w-100 h-auto"
-                                    />
-                                </div>
-                                <div
-                                    class="project-card-info"
-                                    aria-hidden="true"
-                                >
-                                    <a
-                                        class="w-100 h-100 position-absolute"
-                                    ></a>
-                                    <div class="project-card-footer">
-                                        <div class="project-footer-optionsx">
-                                            <div
-                                                @click="
-                                                    on_click_edit_item(product)
-                                                "
-                                                style="
-                                                    background-color: white;
-                                                    position: relative;
-                                                    cursor: pointer;
-                                                    width: 40px;
-                                                    height: 40px;
-                                                    border-radius: 5rem;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    position: absolute;
-                                                    right: 10px;
-                                                    top: 10px;
-                                                "
-                                            >
-                                                <i class="bi bi-pencil"></i>
-                                            </div>
-                                            editar
+                <div id="<%= dom_id project%>" class="">
+                    <div class="project-card">
+                        <div class="project-card-container">
+                            <div class="project-card-image">
+                                <img
+                                    :src="product.url_product"
+                                    size="400x400"
+                                    class="w-100 h-auto"
+                                />
+                            </div>
+                            <div class="project-card-info" aria-hidden="true">
+                                <a class="w-100 h-100 position-absolute"></a>
+                                <div class="project-card-footer">
+                                    <div class="project-footer-optionsx">
+                                        <div
+                                            @click="on_click_edit_item(product)"
+                                            style="
+                                                background-color: white;
+                                                position: relative;
+                                                cursor: pointer;
+                                                width: 40px;
+                                                height: 40px;
+                                                border-radius: 5rem;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                position: absolute;
+                                                right: 10px;
+                                                top: 10px;
+                                            "
+                                        >
+                                            <i class="bi bi-pencil"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <p
-                            class="project-card-titlex pt-3 mx-3"
-                            style="
-                                font-family: 'Roboto';
-                                font-style: normal;
-                                font-weight: 400; /* font-size: 20px; */
-                                line-height: 150%;
-                            "
-                        >
-                            {{ product.name }}
-                        </p>
                     </div>
+
+                    <p
+                        class="project-card-titlex pt-3 mx-3"
+                        style="
+                            font-family: 'Roboto';
+                            font-style: normal;
+                            font-weight: 400; /* font-size: 20px; */
+                            line-height: 150%;
+                        "
+                    >
+                        {{ product.name }}
+                    </p>
                 </div>
             </div>
         </div>

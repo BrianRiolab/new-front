@@ -14,7 +14,7 @@
                         <router-view />
                     </div>
 
-                    <rdx-footer></rdx-footer>
+                    <!-- <rdx-footer></rdx-footer> -->
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@ import { Tooltip } from "bootstrap";
 import Welcome from "./Welcome.vue";
 import SidebarList from "./components/SidebarList.vue";
 import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+// import Footer from "./components/Footer.vue";
 
 export default {
     data() {
@@ -40,7 +40,7 @@ export default {
     components: {
         "rdx-sidebar-list": SidebarList,
         "rdx-header": Header,
-        "rdx-footer": Footer,
+        // "rdx-footer": Footer,
         "rdx-dashboard-welcome": Welcome,
     },
 
@@ -93,6 +93,10 @@ export default {
         const tooltipList = [...tooltipTriggerList].map(
             (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
         );
+        document.getElementsByTagName("body")[0].id = "application";
+        document
+            .getElementsByTagName("body")[0]
+            .classList.remove("without-sidebar");
     },
     methods: {},
 };

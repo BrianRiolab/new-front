@@ -113,9 +113,10 @@ export default {
                     console.log(".......................");
                     console.log(resp);
                     if (resp.data.showcase_state_ch == "EMPTY") {
-                        this.$router.push({ path: "/startup/welcome" });
+                        // this.$router.push({ path: "/startup/welcome" });
+                        this.$router.push({ path: "/startup/step1" });
                     } else {
-                        this.$router.push({ path: "/dashboard/vitrina_vew" });
+                        this.$router.push({ path: "/dashboard/vitrina_view" });
                     }
                 },
                 error: (err) => {

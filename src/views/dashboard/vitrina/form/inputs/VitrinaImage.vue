@@ -237,6 +237,16 @@ export default {
                 .drawImage(img, xOffset, yOffset, newWidth, newHeight);
         }
 
+        // window.addEventListener("resize", function () {
+        //     if ($u.isNotNull(props.url)) {
+        //         var img = new Image();
+        //         img.src = props.url; //e.target.files[0]);
+        //         img.onload = function () {
+        //             showImg(img, img.width, img.height);
+        //         };
+        //     }
+        // });
+
         function onDrop(acceptFiles, rejectReasons) {
             console.log(acceptFiles[0]);
 
